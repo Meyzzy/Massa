@@ -16,7 +16,7 @@ async def clear(ctx, amount=5):
     
 @client.command()
 async def ping(ctx):
-    await ctx.send(f'Delay {round(client.latency * 1000)}ms, sanoitko mua hitaaksi?')
+    await ctx.send(f'Delay {round(client.latency * 1000)}ms, sanoitko mua hitaaksi?!')
 
 @client.command()
 @commands.has_permissions(administrator=True)
