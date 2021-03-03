@@ -6,24 +6,24 @@ client = commands.Bot(command_prefix = '+')
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="MassaRP"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="To angry complains"))
     print('Ready to fight!')
 
-@client.command()
+@client.command(description='Poistaa viestejä, mutta tarvitset oikeudet.')
 @commands.has_permissions(administrator=True)
 async def clear(ctx, amount=5):
     await ctx.channel.purge(limit=amount)
     
-@client.command()
+@client.command(description='Botin ping- millisekuntteina.')
 async def ping(ctx):
     await ctx.send(f'Delay {round(client.latency * 1000)}ms, sanoitko mua hitaaksi?!')
 
-@client.command()
+@client.command(description='Jos et ole admin, älä edes huomio tätä komentoa.')
 @commands.has_permissions(administrator=True)
 async def kick(ctx, member : discord.Member, *, reason=None):
   await member.kick(reason=reason)
 
-@client.command()
+@client.command(description='Super salainen ase- käytä varoen!')
 @commands.has_permissions(administrator=True)
 async def ban(ctx, member : discord.Member, *, reason=None):
   await member.ban(reason=reason)
