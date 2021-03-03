@@ -44,6 +44,19 @@ async def mute(ctx, member: discord.Member, *, reason=None):
   await ctx.send(f'Mykistetty {member.mention} syystä {reason}')
   await member.send(f'Sinut mykistettiin palvelimella {guild.name} syystä {reason}')
 
+  @bot.command(description='Poistaa mykistyksen.')
+  @commands.has_permissions(manage_messages=True)
+  async def unmute(ctx, member: discord.Member):
+     mutedRole = discord.utils.get(ctx.guild.roles, name='Mykistetty')
+  
+  await member.remove_roles(mutedRole)
+  await ctx.send(f'Mykistys poistettu {member.mention}')
+  await member.send(f'Sinut mykistyksesi poistettiin palvelimella {guild.name}')
+
+  
+
+
+
 TOKEN = os.environ['TOKEN']
 
 client.run(TOKEN)
