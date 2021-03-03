@@ -53,6 +53,11 @@ async def mute(ctx, member: discord.Member, *, reason=None):
   await ctx.send(f'Mykistys poistettu {member.mention}')
   await member.send(f'Sinut mykistyksesi poistettiin palvelimella {guild.name}')
 
+@client.event(description='Kertoo viimeisimmän lisätyn asian.')
+async def viimeisin päivitys(ctx):
+  await ctx.send('Mykistys -vielä kesken 3.3.2021')
+
+
   
 
 
