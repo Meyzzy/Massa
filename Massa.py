@@ -57,6 +57,11 @@ async def mute(ctx, member: discord.Member, *, reason=None):
 async def päivitys(ctx):
   await ctx.send('Mykistys -vielä kesken 3.3.2021')
 
+@client.command()
+async def quit(ctx):
+    await ctx.send("Sammutetaan botti.")
+    return await client.logout() # tämä vain sulkee botin.
+
 TOKEN = os.environ['TOKEN']
 
 client.run(TOKEN)
